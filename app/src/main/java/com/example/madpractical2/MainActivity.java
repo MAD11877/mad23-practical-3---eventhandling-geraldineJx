@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Log.v(TITLE, "On Create!");
 
         TextView numText = findViewById(R.id.textView);
-        numText.setText("MAD "+generateNum());
+        numText.setText("MAD " + generateNum());
 
         // Restore the followed state from savedInstanceState, if available
         if (savedInstanceState != null) {
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 if (followButton.getText().equals("Follow")) {
                     followButton.setText("Unfollow");
                     myUser.setFollowed(true);
-                    Toast.makeText(getApplicationContext(),"Followed" ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
                 } else {
                     followButton.setText("Follow");
                     myUser.setFollowed(false);
@@ -57,13 +57,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v(TITLE, "Message button is pressed");
-                Intent myIntent = new Intent(MainActivity.this,MessageGroup.class);
+                Intent myIntent = new Intent(MainActivity.this, MessageGroup.class);
                 startActivity(myIntent);
             }
         });
     }
 
-    private int generateNum(){
+    //generate number
+    private int generateNum() {
         Random ran = new Random();
         int myNumber = ran.nextInt(999999);
         return myNumber;
@@ -106,6 +107,5 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.v(TITLE, "On Destroy!");
     }
-
 }
 
